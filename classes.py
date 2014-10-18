@@ -9,7 +9,7 @@ class Course(object):
 		self.days_past = lst[4]
 		self.enrolledpercent = lst[5]
 
-
+dfgadfgdsghdhgsfhsfgh
 
 #################################
 #Class defining list of classes you are taking
