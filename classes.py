@@ -30,19 +30,19 @@ class CourseLoad(Course):
 	def unit_combos_phase1():
 		units = 10.5
 
-<<<<<<< HEAD
 	def count_courses(courses,amount=10.5):
-	    """Return the number of ways to make change for amount.
-
-	    >>> count_change(7)
-	    6
-	    >>> count_change(10)
-	    14
-	    >>> count_change(20)
-	    60
-	    >>> count_change(100)
-	    9828
-	    """
+	
+	    temp_lst = []
+	    def help_count(amount,part):
+	    	if amount <= 0: #hit max units
+	    	    return []
+	    	elif amount > 0: #still can add units to phase 1
+	    	    
+	    		
+	    for i in courses:
+	    	temp_lst.append(help_count(amount,part))
+	    return temp_lst
+	    
 	    def help_change(amount, part):
 	        if amount == 0:
 	            return 1
@@ -56,10 +56,9 @@ class CourseLoad(Course):
 	    possible_courses = course_load
 	    
 	    possible_courses.print()
-=======
+
 	def can_phase_one():
 		return [i for i in self.lst if i.enrolledpercent >= 100]
->>>>>>> 13a5aa9f4903f60ec520e1b72aa068d29d1a4b3d
 
 
 	def combo():
