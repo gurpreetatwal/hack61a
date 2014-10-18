@@ -38,9 +38,6 @@ class CourseLoad(Course):
 	def most_units_to_least():
 		self.lst = sorted(self.lst, key = lambda course: course.units)
 
-	def unit_combos_phase1():
-		units = 10.5
-
 	def count_courses(courses,amount=10.5):
 	
 	    temp_lst = []
@@ -71,15 +68,6 @@ class CourseLoad(Course):
 	def can_phase_one():
 		return [i for i in self.lst if i.enrolledpercent >= 100]
 
-
-	def combo():
-		def help_combo():
-			return 0
-		return help_combo()
-
-
-	def unit_combos_phase2():
-		phase1_lst = unit_combos_phase1
 
 # certain classes wont fill up past phase 2, some will before phase 2 = phase 1 it
 
