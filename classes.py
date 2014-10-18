@@ -1,4 +1,5 @@
 #Class defining "class"
+#test
 class Course(object):
 	def __init__(self, lst): #lst = list of attributes of each class
 		self.name = lst[0]
@@ -7,8 +8,6 @@ class Course(object):
 		self.class_size = lst[3]
 		self.days_past = lst[4]
 		self.enrolledpercent = lst[5]
-
-
 
 #################################
 #Class defining list of classes you are taking
@@ -31,6 +30,7 @@ class CourseLoad(Course):
 	def unit_combos_phase1():
 		units = 10.5
 
+<<<<<<< HEAD
 	def count_courses(courses,amount=10.5):
 	    """Return the number of ways to make change for amount.
 
@@ -56,6 +56,10 @@ class CourseLoad(Course):
 	    possible_courses = course_load
 	    
 	    possible_courses.print()
+=======
+	def can_phase_one():
+		return [i for i in self.lst if i.enrolledpercent >= 100]
+>>>>>>> 13a5aa9f4903f60ec520e1b72aa068d29d1a4b3d
 
 
 	def combo():
