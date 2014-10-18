@@ -25,12 +25,10 @@ class Course(object):
 class CourseLoad(Course):
 	def __init__(self, lst): #lst = list of Courses
 		self.lst = lst
-
-	def num_units(self):
-		total = 0
 		for i in self.lst:
 			total += i.units
-		return total
+		self.numunits = total
+
 
 	def fullest_to_emptiest(self):
 		self.lst = sorted(self.lst, key = lambda course: course.enrolledpercent)
