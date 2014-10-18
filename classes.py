@@ -26,16 +26,16 @@ class CourseLoad(Course):
 	def __init__(self, lst): #lst = list of Courses
 		self.lst = lst
 
-	def num_units():
+	def num_units(self):
 		total = 0
 		for i in self.lst:
 			total += i.units
 		return total
 
-	def fullest_to_emptiest():
+	def fullest_to_emptiest(self):
 		self.lst = sorted(self.lst, key = lambda course: course.enrolledpercent)
 
-	def most_units_to_least():
+	def most_units_to_least(self):
 		self.lst = sorted(self.lst, key = lambda course: course.units)
 
 	def count_courses(courses,amount=10.5):
@@ -65,7 +65,7 @@ class CourseLoad(Course):
 	    
 	    possible_courses.print()
 
-	def can_phase_one():
+	def can_phase_one(self):
 		return [i for i in self.lst if i.enrolledpercent >= 100]
 
 
