@@ -1,13 +1,24 @@
+# dct = data.py
+# lst = #list of names of classes to take
+# #reenter classes if class name was inputted wrong or not found
+# lst2 = [dct.get(i) for i in lst]
+# lst3 = []
+# count = 0
+# for i in lst2:
+#     lst3.append(Course(lst[count],lst2[1],lst2[2]))
+# c = CourseLoad(lst3)
+
 #Class defining "class"
 #test
 class Course(object):
-	def __init__(self, lst): #lst = list of attributes of each class
-		self.name = lst[0]
-		self.units = lst[1]
-		self.enrolled = lst[2]
-		self.class_size = lst[3]
-		self.days_past = lst[4]
-		self.enrolledpercent = lst[5]
+	def __init__(self, name, class_size, lst): #lst = list of attributes of each class
+		self.name = name
+		self.class_size = class_size
+		self.enrolledpercent = lst[0]
+		self.enrolled = lst[1]
+		self.day = lst[2]
+		self.waitlist = lst[3]
+		self.waitlist_percent = lst[5]
 
 #################################
 #Class defining list of classes you are taking
