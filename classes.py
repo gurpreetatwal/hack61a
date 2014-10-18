@@ -1,4 +1,5 @@
 #Class defining "class"
+#test
 class Course(object):
 	def __init__(self, lst): #lst = list of attributes of each class
 		self.name = lst[0]
