@@ -9,8 +9,6 @@ class Course(object):
 		self.days_past = lst[4]
 		self.enrolledpercent = lst[5]
 
-dfgadfgdsghdhgsfhsfgh
-
 #################################
 #Class defining list of classes you are taking
 class CourseLoad(Course):
@@ -32,6 +30,8 @@ class CourseLoad(Course):
 	def unit_combos_phase1():
 		units = 10.5
 
+	def can_phase_one():
+		return [i for i in self.lst if i.enrolledpercent >= 100]
 
 
 	def combo():
