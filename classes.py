@@ -133,31 +133,35 @@ phase_1_courses = []
 phase_2_courses = []
 do_not_attempt = []
 
-def name(data):
-	return data[0]
+def name(course):
+	#return course[0]
+	return course.name
 
-def enrollment1(data):
-	return data[1]/data[3]
+def enrollment1(course):
+	#return course[1]/course[3]
+	return course.enrolled1/course.class_size
 
-def enrollment2(data):
-	return data[2]/data[3]
+def enrollment2(course):
+	#return course[2]/course[3]
+	return course.enrolled2/course.class_size
 
-def limit(data):
-	return data[3]
+def limit(course):
+	#return course[3]
+	return course.class_size
 
-def list_annex(data):
+def list_annex(course):
 	#if it does not work, replace three instances of global with nonlocal
 	threshold = .9
 	global phase_1_courses
 	global phase_2_courses
 	global do_not_attempt
-	if enrollment2(data) > threshold:
-		if enrollment1(data) >= threshold:
-			do_not_attempt.append(name(data))
+	if enrollment2(course) > threshold:
+		if enrollment1(course) >= threshold:
+			do_not_attempt.append(name(course))
 		else:
-			phase_1_courses.append(name(data))
+			phase_1_courses.append(name(course))
 	else:
-		phase_2_courses.append(name(data))
+		phase_2_courses.append(name(course))
 
 def which_phase(schedule):
 	for key in schedule:
