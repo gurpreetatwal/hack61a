@@ -35,12 +35,6 @@ class CourseLoad(Course):
 			total += i.units
 		self.num_units = total
 
-	def num_units(self):
-		total = 0
-		for i in self.lst:
-			total += i.units
-		self.numunits = total
-
 	def is_empty(self):
 		return len(self.lst)<=0
 
@@ -55,19 +49,6 @@ class CourseLoad(Course):
 
 	def most_units_to_least(self):
 		self.lst = sorted(self.lst, key = lambda course: course.units)
-
-	def unit_combos_phase1():
-		units = 10.5
-
-	    
-	def can_phase_one():
-		return [i for i in self.lst if i.enrolledpercent >= 100]
-
-
-	def combo():
-		def help_combo():
-			return 0
-		return help_combo()
 
 	def add_courseload(self, other): #adds two courseloads together
 		return self.lst + other.lst
@@ -107,23 +88,11 @@ def count_courses(courseload,unit_cap=21):
     	print('before append')
     	course0 = courseload.get(0)
     	courseload.remove_course(0)
-		possible_course_loads.append(count_courses(courseload,unit_cap-course0.units))
+		possible_course_loads.append(count_courses(courseload, unit_cap -course0.units))
 		for i in possible_course_loads:
 			possible_course_loads[i].add_course(course0)
     	possible_course_loads.append(count_courses(courseload,unit_cap))
     	return possible_course_loads
-
-# certain classes wont fill up past phase 2, some will before phase 2 = phase 1 it
-
-# if waitlist is 10% of class size, then waitlist at phase 2
-
-# enrolled percentage, days since start of telebears, waitlisted, 
-# enrolled number, max class size, title, 
-# subtitle(e.g. "structure and interpretation of computer data")
-
-
-
-
 
 #schedule = {'cs61a': ['cs61a', 100, 100, 100], 'physics7a': ['physics7a', 80, 100, 100], 'math54': ['math54', 80, 80, 100]}
 
