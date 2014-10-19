@@ -7,12 +7,24 @@ print("Tele-Bears Advisors looks at last semester's enrollment data and determin
 print("which classes you should Phase 1 and which ones you should Phase 2")
 user_classes = input("Please enter all the classes you plan to take this semester, seperated by a spaces.\n")
 
-user_classes = list(user_classes.upper().split())
+user_classes = user_classes.upper().split()
 class_data = {}
+
+def replace(string, wrong, right):
+	if wrong in string:
+		return string.replace(wrong, right)
+	return string
+
 
 i = 0
 while i < len(user_classes):
-	current_class = user_classes[i].upper()
+	user_classes[i] = user_classes[i].upper()
+
+	user_classes[i] = replace(user_classes[i],'CS','COMPSCI')
+	user_classes[i] = replace(user_classes[i],'ASTRO','ASTRON')
+	
+	current_class = user_classes[i]
+
 	if current_class in berkeley_classes:
 
 		# Get all sections
@@ -48,3 +60,4 @@ while i < len(user_classes):
 		user_classes[i] = input('Sorry, but ' + user_classes[i] + ' is not a valid course, please try again\n')
 
 print(class_data)
+
