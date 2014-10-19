@@ -1,16 +1,4 @@
-# dct = data.py
-# input day of phase1, phase2
-# lst = #input names of classes to take
-# #reenter classes if class name was inputted wrong or not found
-# lst2 = [dct.get(i) for i in lst]
-# lst3 = []
-# count = 0
-# for i in lst2:
-#     lst3.append(Course(lst[count],lst2[1],lst2[2]))
-# c = CourseLoad(lst3)
-
 #Class defining "class"
-#test
 class Course(object):
 	def __init__(self, name, day, enrolled, wait, wait_percent, enrolled_percent, units, max_enroll):
 		self.name = name
