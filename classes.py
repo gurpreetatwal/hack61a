@@ -79,7 +79,7 @@ class CourseLoad(Course):
 
 
 
-def count_courses(courses,unit_cap=10.5):
+def count_courses(courseload,unit_cap=21):
     """Return the number of ways to make change for unit_cap.
 
     >>> course1 = Course('anthro',25,[.4,10,5,0,0,4])
@@ -90,21 +90,21 @@ def count_courses(courses,unit_cap=10.5):
     >>> count_courses(courseloadA,10.5)
     [[course4,course1],[course3,course1],[course2,course1],[course4,course2],[course3,course2],[course4,course3]]
     """
-    def help_courses(unit_cap, courseload):
-        if unit_cap == 0:
-            return []
-        elif unit_cap == courseload.num_units:
-            return [courseload]
-        elif courseload.is_empty:
-        	return []
-        else: #unit_cap < courseload.num_units:
-        	possible_course_loads = []
-        	possible_course_loads.append(help_courses(unit_cap-courseload.get(0).units,courseload.remove_course(0)))
-        	for i in possible_course_loads:
-        		possible_course_loads[i].add_course(courseload.get(0))
-        	possible_course_loads.append(help_courses(unit_cap,courseload.remove_course(0)))
-        	return possible_course_loads
-    return help_courses(unit_cap,courses)
+    if unit_cap == 0:
+        return []
+    elif unit_cap >= courseload.num_units:
+        return [courseload]
+    elif courseload.is_empty:
+    	print('courseload is_empty')
+    	return []
+    else: #unit_cap < courseload.num_units:
+    	possible_course_loads = []
+    	print('before append')
+    	possible_course_loads.append(count_courses(unit_cap-courseload.get(0).units,courseload.remove_course(0)))
+    	for i in possible_course_loads:
+    		possible_course_loads[i].add_course(courseload.get(0))
+    	possible_course_loads.append(count_courses(unit_cap,courseload.remove_course(0)))
+    	return possible_course_loads
 
 # certain classes wont fill up past phase 2, some will before phase 2 = phase 1 it
 
