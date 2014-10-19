@@ -10,19 +10,9 @@ user_classes = input("Please enter all the classes you plan to take this semeste
 user_classes = user_classes.upper().split()
 class_data = {}
 
-def replace(string, wrong, right):
-	if wrong in string:
-		return string.replace(wrong, right)
-	return string
-
-
 i = 0
 while i < len(user_classes):
-	user_classes[i] = user_classes[i].upper()
-
-	user_classes[i] = replace(user_classes[i],'CS','COMPSCI')
-	user_classes[i] = replace(user_classes[i],'ASTRO','ASTRON')
-	
+	user_classes[i] = user_classes[i].upper()	
 	current_class = user_classes[i]
 
 	if current_class in berkeley_classes:
