@@ -49,83 +49,77 @@ class CourseLoad(Course):
 		self.lst.remove(course)
 
 
+# def count_courses(courseload,unit_cap=21):
+# 	"""Return the number of ways to make change for unit_cap.
 
-def count_courses(courseload,unit_cap=21):
-	"""Return the number of ways to make change for unit_cap.
+# 	>>> course1 = Course('anthro',25,[.4,10,5,0,0,4])
+# 	>>> course2 = Course('german',25,[.52,24,5,0,0,4])
+# 	>>> course3 = Course('math',500,[.254,127,5,0,0,4])
+# 	>>> course4 = Course('spanish',20,[.45,9,5,0,0,5])
+# 	>>> courseloadA = CourseLoad([course1,course2,course3,course4])
+# 	>>> count_courses(courseloadA,10.5)
+# 	[[course4,course1],[course3,course1],[course2,course1],[course4,course2],[course3,course2],[course4,course3]]
+# 	"""
+# 	if unit_cap == 0:
+# 		print('unit_cap is 0')
+# 		return []
+# 	elif unit_cap >= courseload.num_units:
+# 		print('cap is large enuf')
+# 		return [courseload]
+# 	elif courseload.is_empty():
+# 		print('courseload is_empty')
+# 		return []
+# 	elif courseload.get(0).units>unit_cap:
+# 		return []
+# 	else: #unit_cap < courseload.num_units:
+# 		possible_course_loads = []
+# 		print('before append')
+# 		course0 = courseload.get(0)
+# 		courseload.remove_course(0)
+# 		possible_course_loads.append(count_courses(courseload, unit_cap -course0.units))
+# 		for i in possible_course_loads:
+# 			possible_course_loads[i].add_course(course0)
+# 		possible_course_loads.append(count_courses(courseload,unit_cap))
+# 		return possible_course_loads
 
-	>>> course1 = Course('anthro',25,[.4,10,5,0,0,4])
-	>>> course2 = Course('german',25,[.52,24,5,0,0,4])
-	>>> course3 = Course('math',500,[.254,127,5,0,0,4])
-	>>> course4 = Course('spanish',20,[.45,9,5,0,0,5])
-	>>> courseloadA = CourseLoad([course1,course2,course3,course4])
-	>>> count_courses(courseloadA,10.5)
-	[[course4,course1],[course3,course1],[course2,course1],[course4,course2],[course3,course2],[course4,course3]]
-	"""
-	if unit_cap == 0:
-		print('unit_cap is 0')
-		return []
-	elif unit_cap >= courseload.num_units:
-		print('cap is large enuf')
-		return [courseload]
-	elif courseload.is_empty():
-		print('courseload is_empty')
-		return []
-	elif courseload.get(0).units>unit_cap:
-		return []
-	else: #unit_cap < courseload.num_units:
-		possible_course_loads = []
-		print('before append')
-		course0 = courseload.get(0)
-		courseload.remove_course(0)
-		possible_course_loads.append(count_courses(courseload, unit_cap -course0.units))
-		for i in possible_course_loads:
-			possible_course_loads[i].add_course(course0)
-		possible_course_loads.append(count_courses(courseload,unit_cap))
-		return possible_course_loads
+# #schedule = {'cs61a': ['cs61a', 100, 100, 100], 'physics7a': ['physics7a', 80, 100, 100], 'math54': ['math54', 80, 80, 100]}
 
-#schedule = {'cs61a': ['cs61a', 100, 100, 100], 'physics7a': ['physics7a', 80, 100, 100], 'math54': ['math54', 80, 80, 100]}
+# schedule = []
 
-schedule = []
+# phase_1_courses = []
+# phase_2_courses = []
+# do_not_attempt = []
 
-phase_1_courses = []
-phase_2_courses = []
-do_not_attempt = []
+# def name(course):
+# 	#return course[0]
+# 	return course.name
 
-def name(course):
-	#return course[0]
-	return course.name
+# def enrollment1(course):
+# 	#return course[1]/course[3]
+# 	return course.enrolled1/course.class_size
 
-def enrollment1(course):
-	#return course[1]/course[3]
-	return course.enrolled1/course.class_size
+# def enrollment2(course):
+# 	#return course[2]/course[3]
+# 	return course.enrolled2/course.class_size
 
-def enrollment2(course):
-	#return course[2]/course[3]
-	return course.enrolled2/course.class_size
+# def limit(course):
+# 	#return course[3]
+# 	return course.class_size
 
-def limit(course):
-	#return course[3]
-	return course.class_size
+# def list_annex(course):
+# 	#if it does not work, replace three instances of global with nonlocal
+# 	threshold = .9
+# 	global phase_1_courses
+# 	global phase_2_courses
+# 	global do_not_attempt
+# 	if enrollment2(course) > threshold:
+# 		if enrollment1(course) >= threshold:
+# 			do_not_attempt.append(name(course))
+# 		else:
+# 			phase_1_courses.append(name(course))
+# 	else:
+# 		phase_2_courses.append(name(course))
 
-def list_annex(course):
-	#if it does not work, replace three instances of global with nonlocal
-	threshold = .9
-	global phase_1_courses
-	global phase_2_courses
-	global do_not_attempt
-	if enrollment2(course) > threshold:
-		if enrollment1(course) >= threshold:
-			do_not_attempt.append(name(course))
-		else:
-			phase_1_courses.append(name(course))
-	else:
-		phase_2_courses.append(name(course))
-
-def which_phase(schedule):
-	for key in schedule:
-		list_annex(schedule[key])
-
-#dictionary = {}
-
-#def make_dictionary(course_list):
-	#for i in course_list:
+# def which_phase(schedule):
+# 	for key in schedule:
+# 		list_annex(schedule[key])

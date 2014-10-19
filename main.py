@@ -7,6 +7,7 @@ import urllib.request
 print("Welcome to Tele-Bears Advisor!")
 print("Tele-Bears Advisors looks at last semester's enrollment data and determines")
 print("which classes you should Phase 1 and which ones you should Phase 2")
+<<<<<<< HEAD
 # user_day1 = input("Please enter your Phase1 Tele-Bears day, for example Nov 4 2014: ")
 # user_day2 = input("Please enter your Phase2 Tele-Bears day: ")
 # user_classes = input("Please enter all the classes you plan to take this semester, seperated by a spaces.\n")
@@ -14,6 +15,11 @@ print("which classes you should Phase 1 and which ones you should Phase 2")
 user_day1 = 'Nov 28 2014'
 user_day2 = 'Dec 15 2014'
 user_classes = 'math53 math54 math55 physics7b eleng120'
+=======
+user_day1 = input("Please enter your Phase1 Tele-Bears day, for example Nov 4 2014: ")
+user_day2 = input("Please enter your Phase2 Tele-Bears day: ")
+user_classes = input("Please enter all the classes you plan to take this semester, seperated by a spaces.\n")
+>>>>>>> 00c96d0684ae60533c5e1acdbabe8ccabf634db0
 
 tele_bears = datetime.strptime('Oct 20 2014', '%b %d %Y')
 user_day1 = datetime.strptime(user_day1, '%b %d %Y') - tele_bears
@@ -55,18 +61,21 @@ while i < len(user_classes):
 		class_data[current_class] = {}
 		max_enroll = data['enrolled_max']
 		data = data['data']
-		
+
 		for day in data:
 			day_key = day['day']
 			enrolled = day['enrolled']
 			waitlisted = day['waitlisted']
 			wait_percent = day['waitlisted_percent']
 			enro_percent = day['enrolled_percent']
+<<<<<<< HEAD
 			class_data[current_class][day_key] = [float(enrolled), float(waitlisted), float(enro_percent), float(wait_percent), float(units), float(max_enroll)]
+=======
+			class_data[current_class][day_key] = [float(enrolled), float(waitlisted), float(enro_percent), float(wait_percent), int(units), float(max_enroll)]
+>>>>>>> 00c96d0684ae60533c5e1acdbabe8ccabf634db0
 		i += 1
 	else:
 		user_classes[i] = input('Sorry, but ' + user_classes[i] + ' is not a valid course, please try again\n')
-
 
 keys, values = class_data.keys(), []
 for i in class_data:
@@ -92,6 +101,7 @@ cl2 = CourseLoad(course_lst2)
 
 
 def phase_or_not(courseyay):
+<<<<<<< HEAD
 	print(courseyay.wait_percent, courseyay.enrolled_percent)
 	if (courseyay.wait_percent + courseyay.enrolled_percent) > .1:
 		return False
@@ -110,11 +120,40 @@ courseload0 = CourseLoad([])
 for i in range(courseload1.len()):
 	if phase_or_not(courseload1.get(i)) == True:
 		courseload11.add_course(courseload1.get(i))
-	else:
-		courseload0.add_course(courseload1.get(i))
+=======
+	if courseyay.wait_percent + (courseyay.enrolled / courseyay.class_size) > .3:
+		return False
+	return True
 
-print('sorry, cant get into these class even with phase 1', [i.name for i in courseload0.lst])
-print('you need to phase 1 these for sure, if you cant you probalby wont get into them', [i.name for i in courseload11.lst])
-print('you can just phase 2 these and probably get in', [i.name for i in courseload2.lst])
+
+
+phase_two_classes = CourseLoad([])
+phase_one_courses = CourseLoad([])
+
+
+for i in range(cl2.len()):
+	if True == phase_or_not(cl2.get(i)):
+		phase_two_classes.add_course(cl2.get(i))
+	else:
+
+		phase_one_courses.add_course(cl1.get(i))
+
+
+phase_one_courses1 = CourseLoad([])
+impossible_classes = CourseLoad([])
+
+
+for i in range(phase_one_courses.len()):
+	if True == phase_or_not(phase_one_courses.get(i)):
+		phase_one_courses1.add_course(phase_one_courses.get(i))
+
+>>>>>>> 00c96d0684ae60533c5e1acdbabe8ccabf634db0
+	else:
+		impossible_classes.add_course(phase_one_courses.get(i))
+
+print('You can phase 2 these and probably get in: ', [i.name for i in phase_two_classes.lst])
+print('You need to phase 1 these for sure; if you cant you probably wont get into them: ', [i.name for i in phase_one_courses1.lst])
+print('Sorry, you cant get into these classes even with phase 1: ', [i.name for i in impossible_classes.lst])
+
 
 
