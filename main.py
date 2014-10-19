@@ -55,7 +55,7 @@ while i < len(user_classes):
 			waitlisted = day['waitlisted']
 			wait_percent = day['waitlisted_percent']
 			enro_percent = day['enrolled_percent']
-			class_data[current_class][day_key] = [enrolled, waitlisted, enro_percent, wait_percent, units, max_enroll]
+			class_data[current_class][day_key] = [enrolled, waitlisted, enro_percent, wait_percent, int(units), max_enroll]
 		i += 1
 	else:
 		user_classes[i] = input('Sorry, but ' + user_classes[i] + ' is not a valid course, please try again\n')
@@ -72,7 +72,20 @@ for i in values:
 
 course_lst1, course_lst2 = [], []
 
-print(phase1)
-# for key in keys:
-# 	course_lst1.append(Course(key,user_day1, ))
-
+def phase_or_not(courseyay):
+	if courseyay.wait_percent + courseyay.enrolled_percent > 1.1:
+		
+courseload2 = CourseLoad
+courseload1 = CourseLoad
+for i in len(cl2):
+	if True == phase_or_not(cl2.get(i))
+		courseload2.add_course(cl2.get(i))
+	else:
+		courseload1.add_courses(cl1.get(i))
+courseload11 = CourseLoad
+courseload0 = CourseLoad
+for i in len(courseload1):
+	if True == phase_or_not(courseload1.get(i))
+		courseload11.add_course(courseload1.get(i))
+	else:
+		courseload0.add_course(courseload1.get(i))
