@@ -54,7 +54,7 @@ while i < len(user_classes):
 			waitlisted = day['waitlisted']
 			wait_percent = day['waitlisted_percent']
 			enro_percent = day['enrolled_percent']
-			class_data[current_class][day_key] = [enrolled, waitlisted, enro_percent, wait_percent, units]
+			class_data[current_class][day_key] = [enrolled, waitlisted, enro_percent, wait_percent, units, max_enroll]
 		i += 1
 	else:
 		user_classes[i] = input('Sorry, but ' + user_classes[i] + ' is not a valid course, please try again\n')
