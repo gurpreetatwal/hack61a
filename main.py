@@ -11,7 +11,7 @@ print("which classes you should Phase 1 and which ones you should Phase 2")
 # user_day2 = input("Please enter your Phase2 Tele-Bears day: ")
 # user_classes = input("Please enter all the classes you plan to take this semester, seperated by a spaces.\n")
 
-user_day1 = 'Nov 4 2014'
+user_day1 = 'Nov 28 2014'
 user_day2 = 'Dec 15 2014'
 user_classes = 'math53 math54 math55 physics7b'
 
@@ -90,24 +90,27 @@ def phase_or_not(courseyay):
 		return False
 	return True
 
-courseload2 = CourseLoad([])
-courseload1 = CourseLoad([])
-for i in range(cl2.len()-1):
+
+phase_two_classes = CourseLoad([])
+phase_one_courses = CourseLoad([])
+
+for i in range(cl2.len()):
 	if True == phase_or_not(cl2.get(i)):
-		courseload2.add_course(cl2.get(i))
+		phase_two_classes.add_course(cl2.get(i))
 	else:
-		courseload1.add_courses(cl1.get(i))
-courseload11 = CourseLoad([])
-courseload0 = CourseLoad([])
+		phase_one_courses.add_courses(cl1.get(i))
 
-for i in range(courseload1.len()-1):
-	if True == phase_or_not(courseload1.get(i)):
-		courseload11.add_course(courseload1.get(i))
+phase_one_courses1 = CourseLoad([])
+impossible_classes = CourseLoad([])
+
+for i in range(phase_one_courses.len()):
+	if True == phase_or_not(phase_one_courses.get(i)):
+		phase_one_courses1.add_course(phase_one_courses.get(i))
 	else:
-		courseload0.add_course(courseload1.get(i))
+		impossible_classes.add_course(phase_one_courses.get(i))
 
-print('sorry, cant get into these class even with phase 1', [i.name for i in courseload0.lst])
-print('you need to phase 1 these for sure, if you cant you probalby wont get into them', [i.name for i in courseload11.lst])
-print('you can just phase 2 these and probably get in', [i.name for i in courseload2.lst])
+print('sorry, cant get into these class even with phase 1', [i.name for i in impossible_classes.lst])
+print('you need to phase 1 these for sure, if you cant you probalby wont get into them', [i.name for i in phase_one_courses1.lst])
+print('you can just phase 2 these and probably get in', [i.name for i in phase_two_classes.lst])
 
 
