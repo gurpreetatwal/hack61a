@@ -85,7 +85,7 @@ cl1 = CourseLoad(course_lst1)
 cl2 = CourseLoad(course_lst2)
 
 def phase_or_not(courseyay):
-	if courseyay.wait_percent + (courseyay.enrolled / courseyay.class_size) > 1.1:
+	if courseyay.wait_percent + (courseyay.enrolled / courseyay.class_size) > .3:
 		return False
 	return True
 
