@@ -52,18 +52,17 @@ while i < len(user_classes):
 		class_data[current_class] = {}
 		max_enroll = data['enrolled_max']
 		data = data['data']
-		
+
 		for day in data:
 			day_key = day['day']
 			enrolled = day['enrolled']
 			waitlisted = day['waitlisted']
 			wait_percent = day['waitlisted_percent']
 			enro_percent = day['enrolled_percent']
-			class_data[current_class][day_key] = [int(enrolled), int(waitlisted), int(enro_percent), int(wait_percent), int(units), int(max_enroll)]
+			class_data[current_class][day_key] = [float(enrolled), float(waitlisted), float(enro_percent), float(wait_percent), int(units), float(max_enroll)]
 		i += 1
 	else:
 		user_classes[i] = input('Sorry, but ' + user_classes[i] + ' is not a valid course, please try again\n')
-
 
 keys, values = class_data.keys(), []
 for i in class_data:
@@ -100,6 +99,7 @@ for i in range(cl2.len()):
 	if True == phase_or_not(cl2.get(i)):
 		phase_two_classes.add_course(cl2.get(i))
 	else:
+
 		phase_one_courses.add_course(cl1.get(i))
 
 phase_one_courses1 = CourseLoad([])
@@ -114,11 +114,8 @@ for i in range(phase_one_courses.len()):
 		impossible_classes.add_course(phase_one_courses.get(i))
 
 
-print('cl1',[i.name for i in cl1.lst])
-print('cl2',[i.name for i in cl2.lst])
-print('sorry, cant get into these class even with phase 1', [i.name for i in impossible_classes.lst])
-print('you need to phase 1 these for sure, if you cant you probalby wont get into them', [i.name for i in phase_one_courses1.lst])
+print('sorry, cant get into these classes even with phase 1', [i.name for i in impossible_classes.lst])
+print('you need to phase 1 these for sure, if you cant you probablyy wont get into them', [i.name for i in phase_one_courses1.lst])
 print('you can just phase 2 these and probably get in', [i.name for i in phase_two_classes.lst])
-
 
 
