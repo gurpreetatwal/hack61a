@@ -20,6 +20,7 @@ class Course(object):
 		self.day = lst[2]
 		self.waitlist = lst[3]
 		self.waitlist_percent = lst[4]
+		self.units=lst[5]
 
 		
 
@@ -78,10 +79,10 @@ class CourseLoad(Course):
 def count_courses(courses,unit_cap=10.5):
     """Return the number of ways to make change for unit_cap.
 
-    >>> course1 = Course('anthro',25,[.4,10,5,0,0])
-   	>>> course2 = Course('german',25,[.52,24,5,0,0])
-   	>>> course3 = Course('math',500,[.254,127,5,0,0])
-   	>>> course4 = Course('spanish',20,[.45,9,5,0,0])
+    >>> course1 = Course('anthro',25,[.4,10,5,0,0,4])
+   	>>> course2 = Course('german',25,[.52,24,5,0,0,4])
+   	>>> course3 = Course('math',500,[.254,127,5,0,0,4])
+   	>>> course4 = Course('spanish',20,[.45,9,5,0,0,5])
     >>> courseloadA = CourseLoad([course1,course2,course3,course4])
     >>> count_courses(courseloadA,10.5)
     [[course4,course1],[course3,course1],[course2,course1],[course4,course2],[course3,course2],[course4,course3]]
