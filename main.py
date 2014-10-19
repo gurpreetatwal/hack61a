@@ -26,6 +26,11 @@ while i < len(user_classes):
 		bt_data = urllib.request.urlopen("http://www.berkeleytime.com/enrollment/aggregate/" + str(class_value) + "/" + semester + "/" + year + "/").read()
 		data = eval(BeautifulSoup(bt_data).text)
 
+		# Get units
+		unit_page = urllib.request.urlopen("http://www.berkeleytime.com/catalog/course_box/?course_id=" + str(class_value))
+		unit_page = BeautifulSoup(unit_page)
+		units = unit_page.find('div', class_="generic-text-box", text='Units').previous_element
+
 		# Manage data
 		class_data[current_class] ={}
 		data = data['data']
@@ -36,8 +41,10 @@ while i < len(user_classes):
 			waitlisted = day['waitlisted']
 			wait_percent = day['waitlisted_percent']
 			enro_percent = day['enrolled_percent']
-			class_data[current_class][day_key] = [enrolled, waitlisted, enro_percent, wait_percent]
+			class_data[current_class][day_key] = [enrolled, waitlisted, enro_percent, wait_percent, units
 
 		i += 1
 	else:
 		user_classes[i] = input('Sorry, but ' + user_classes[i] + ' is not a valid course, please try again\n')
+
+print(class_data)
