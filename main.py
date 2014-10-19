@@ -95,12 +95,9 @@ for i in range(cl2.len()):
 	if True == phase_or_not(cl2.get(i)):
 		phase_two_classes.add_course(cl2.get(i))
 	else:
-<<<<<<< HEAD
 
 		phase_one_courses.add_course(cl1.get(i))
-=======
-		phase_one_courses.add_courses(cl1.get(i))
->>>>>>> 78c446ef15b2ca3d672c193f84c93f8e21ff4818
+
 
 phase_one_courses1 = CourseLoad([])
 impossible_classes = CourseLoad([])
@@ -113,15 +110,9 @@ for i in range(phase_one_courses.len()):
 	else:
 		impossible_classes.add_course(phase_one_courses.get(i))
 
-<<<<<<< HEAD
-
-print('sorry, cant get into these classes even with phase 1', [i.name for i in impossible_classes.lst])
-print('you need to phase 1 these for sure, if you cant you probablyy wont get into them', [i.name for i in phase_one_courses1.lst])
-print('you can just phase 2 these and probably get in', [i.name for i in phase_two_classes.lst])
-=======
 print('You can phase 2 these and probably get in: ', [i.name for i in phase_two_classes.lst])
 print('You need to phase 1 these for sure; if you cant you probably wont get into them: ', [i.name for i in phase_one_courses1.lst])
 print('Sorry, you cant get into these classes even with phase 1: ', [i.name for i in impossible_classes.lst])
->>>>>>> 78c446ef15b2ca3d672c193f84c93f8e21ff4818
+
 
 
