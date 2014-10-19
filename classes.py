@@ -1,5 +1,6 @@
 # dct = data.py
-# lst = #list of names of classes to take
+# input day of phase1, phase2
+# lst = #input names of classes to take
 # #reenter classes if class name was inputted wrong or not found
 # lst2 = [dct.get(i) for i in lst]
 # lst3 = []
@@ -20,6 +21,8 @@ class Course(object):
 		self.waitlist = lst[3]
 		self.waitlist_percent = lst[5]
 
+		
+
 #################################
 #Class defining list of classes you are taking
 class CourseLoad(Course):
@@ -29,7 +32,11 @@ class CourseLoad(Course):
 			total += i.units
 		self.numunits = total
 
-
+	def get(self, index):
+		if index > len(self.lst):
+			return "Error: exceeded length of list"
+		else:
+			return self.lst[index]
 	def fullest_to_emptiest(self):
 		self.lst = sorted(self.lst, key = lambda course: course.enrolledpercent)
 
@@ -62,6 +69,16 @@ class CourseLoad(Course):
 	    possible_courses = course_load
 	    
 	    possible_courses.print()
+	def add_courseload(self, other): #adds two courseloads together
+		return self.lst + other.lst
+		
+	def add_course(self, course): #adds a course to the courseload
+		
+	
+	def remove_course(self): #removes a course from the courseload
+
+	def which_phase(self):
+		return 0
 
 	def can_phase_one(self):
 		return [i for i in self.lst if i.enrolledpercent >= 100]
