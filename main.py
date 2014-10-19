@@ -92,14 +92,14 @@ def phase_or_not(courseyay):
 
 courseload2 = CourseLoad([])
 courseload1 = CourseLoad([])
-for i in range(cl2.len()):
+for i in range(cl2.len()-1):
 	if True == phase_or_not(cl2.get(i)):
 		courseload2.add_course(cl2.get(i))
 	else:
 		courseload1.add_courses(cl1.get(i))
 courseload11 = CourseLoad
 courseload0 = CourseLoad
-for i in range(courseload1.len()):
+for i in range(courseload1.len()-1):
 	if True == phase_or_not(courseload1.get(i)):
 		courseload11.add_course(courseload1.get(i))
 	else:

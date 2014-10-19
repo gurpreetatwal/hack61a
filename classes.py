@@ -40,7 +40,7 @@ class CourseLoad(Course):
 		return len(self.lst)<=0
 
 	def get(self, index):
-		if index > len(self.lst) or not self.is_empty():
+		if index > len(self.lst) or self.is_empty():
 			return "Error: exceeded length of list"
 		else:
 			return self.lst[index]
