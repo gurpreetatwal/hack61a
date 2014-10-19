@@ -14,8 +14,12 @@ class Course(object):
 class CourseLoad(Course):
 	def __init__(self, lst): #lst = list of Courses
 		self.lst = lst
+		total = 0
+		for i in self.lst:
+			total += i.units
+		self.num_units = total
 
-	def num_units():
+	def num_units(self):
 		total = 0
 		for i in self.lst:
 			total += i.units
@@ -30,36 +34,9 @@ class CourseLoad(Course):
 	def unit_combos_phase1():
 		units = 10.5
 
-<<<<<<< HEAD
-	def count_courses(courses,amount=10.5):
-	    """Return the number of ways to make change for amount.
-
-	    >>> count_change(7)
-	    6
-	    >>> count_change(10)
-	    14
-	    >>> count_change(20)
-	    60
-	    >>> count_change(100)
-	    9828
-	    """
-	    def help_change(amount, part):
-	        if amount == 0:
-	            return 1
-	        if amount == part:
-	            return 1
-	        elif amount < part:
-	            return 0
-	        else:
-	            return help_change(amount-part.lst[1].units,part)+help_change(amount,part*2)
-	    return help_change(amount,courses.lst)
-	    possible_courses = course_load
 	    
-	    possible_courses.print()
-=======
 	def can_phase_one():
 		return [i for i in self.lst if i.enrolledpercent >= 100]
->>>>>>> 13a5aa9f4903f60ec520e1b72aa068d29d1a4b3d
 
 
 	def combo():
@@ -70,6 +47,32 @@ class CourseLoad(Course):
 
 	def unit_combos_phase2():
 		phase1_lst = unit_combos_phase1
+
+
+def count_courses(courses,unit_cap=10.5):
+    """Return the number of ways to make change for unit_cap.
+
+    >>> course1 = Course(['anthro',4,10,25,5,.4])
+   	>>> course2 = Course(['german',4,13,25,5,.52])
+   	>>> course3 = Course(['math',4,127,500,5,.254])
+   	>>> course4 = Course(['spanish',5,9,20,5,.45])
+    >>> courseloadA = CourseLoad([course1,course2,course3,course4])
+    >>> count_courses(courseloadA,10.5)
+    [[course4,course1],[course3,course1],[course2,course1],[course4,course2],[course3,course2],[course4,course3]]
+    """
+    def help_change(unit_cap, courseload):
+        if unit_cap == 0:
+            pass
+        elif unit_cap == courseload.num_units:
+            return courseload
+        else: #unit_cap < courseload.num_units:
+        	possible_course_loads = help_change(unit_cap-courseload.get(0).units,courseload.remove(0))
+        	for i in possible_course_load:
+        		possible_course_load.add(courseload.get(0))
+        	possible_list.append(possible_course_load)
+        	possible_list.append(help_change(unit_cap,courseload.remove(0)))
+        	return possible_list
+    return help_change(unit_cap,courses)
 
 # certain classes wont fill up past phase 2, some will before phase 2 = phase 1 it
 
