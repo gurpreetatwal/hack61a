@@ -109,8 +109,8 @@ for i in range(phase_one_courses.len()):
 	else:
 		impossible_classes.add_course(phase_one_courses.get(i))
 
-print('sorry, cant get into these class even with phase 1', [i.name for i in impossible_classes.lst])
-print('you need to phase 1 these for sure, if you cant you probalby wont get into them', [i.name for i in phase_one_courses1.lst])
+print('sorry, cant get into these classes even with phase 1', [i.name for i in impossible_classes.lst])
+print('you need to phase 1 these for sure, if you cant you probablyy wont get into them', [i.name for i in phase_one_courses1.lst])
 print('you can just phase 2 these and probably get in', [i.name for i in phase_two_classes.lst])
 
 
