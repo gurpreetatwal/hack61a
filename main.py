@@ -23,7 +23,7 @@ class_data = {}
 
 i = 0
 while i < len(user_classes):
-	user_classes[i] = user_classes[i].upper()	
+	user_classes[i] = user_classes[i].upper()   
 	current_class = user_classes[i]
 
 	if current_class in berkeley_classes:
