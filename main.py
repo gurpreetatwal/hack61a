@@ -80,7 +80,7 @@ def phase_or_not(courseyay):
 courseload2 = CourseLoad
 courseload1 = CourseLoad
 for i in len(cl2):
-	if True == phase_or_not(cl2.get(i))
+	if True == phase_or_not(cl2.get(i)):
 		courseload2.add_course(cl2.get(i))
 	else:
 		courseload1.add_courses(cl1.get(i))
