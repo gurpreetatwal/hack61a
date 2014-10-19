@@ -97,8 +97,9 @@ for i in range(cl2.len()-1):
 		courseload2.add_course(cl2.get(i))
 	else:
 		courseload1.add_courses(cl1.get(i))
-courseload11 = CourseLoad
-courseload0 = CourseLoad
+courseload11 = CourseLoad([])
+courseload0 = CourseLoad([])
+
 for i in range(courseload1.len()-1):
 	if True == phase_or_not(courseload1.get(i)):
 		courseload11.add_course(courseload1.get(i))
@@ -108,6 +109,5 @@ for i in range(courseload1.len()-1):
 print('sorry, cant get into these class even with phase 1', [i.name for i in courseload0.lst])
 print('you need to phase 1 these for sure, if you cant you probalby wont get into them', [i.name for i in courseload11.lst])
 print('you can just phase 2 these and probably get in', [i.name for i in courseload2.lst])
-
 
 
