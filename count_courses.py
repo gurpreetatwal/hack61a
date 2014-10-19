@@ -18,8 +18,8 @@ def count_courses(courses,amount=10.5):
         elif amount < part:
             return 0
         else:
-            return help_change(amount-part.first.units(),part)+help_change(amount,part*2)
-    return help_change(amount,courses.lst())
+            return help_change(amount-part.lst[1].units,part)+help_change(amount,part*2)
+    return help_change(amount,courses.lst)
     possible_courses = course_load
     
     possible_courses.print()

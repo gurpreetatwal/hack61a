@@ -10,12 +10,24 @@ user_classes = input("Please enter all the classes you plan to take this semeste
 user_day1 = input("Please enter your Phase1 Tele-Bears day:  ")
 user_day2 = input("Please enter your Phase2 Tele-Bears day:  ")
 
-user_classes = list(user_classes.upper().split())
+user_classes = user_classes.upper().split()
 class_data = {}
+
+def replace(string, wrong, right):
+	if wrong in string:
+		return string.replace(wrong, right)
+	return string
+
 
 i = 0
 while i < len(user_classes):
-	current_class = user_classes[i].upper()
+	user_classes[i] = user_classes[i].upper()
+
+	user_classes[i] = replace(user_classes[i],'CS','COMPSCI')
+	user_classes[i] = replace(user_classes[i],'ASTRO','ASTRON')
+	
+	current_class = user_classes[i]
+
 	if current_class in berkeley_classes:
 
 		# Get all sections
@@ -29,8 +41,14 @@ while i < len(user_classes):
 		bt_data = urllib.request.urlopen("http://www.berkeleytime.com/enrollment/aggregate/" + str(class_value) + "/" + semester + "/" + year + "/").read()
 		data = eval(BeautifulSoup(bt_data).text)
 
+		# Get units
+		unit_page = urllib.request.urlopen("http://www.berkeleytime.com/catalog/course_box/?course_id=" + str(class_value))
+		unit_page = BeautifulSoup(unit_page)
+		units = unit_page.find('div', class_="generic-text-box", text='Units').previous_element
+
 		# Manage data
-		class_data[current_class] ={}
+		class_data[current_class] = {}
+		max_enroll = data['enrolled_max']
 		data = data['data']
 		
 		for day in data:
@@ -39,12 +57,12 @@ while i < len(user_classes):
 			waitlisted = day['waitlisted']
 			wait_percent = day['waitlisted_percent']
 			enro_percent = day['enrolled_percent']
-			class_data[current_class][day_key] = [enrolled, waitlisted, enro_percent, wait_percent]
-
+			class_data[current_class][day_key] = [enrolled, waitlisted, enro_percent, wait_percent, units, max_enroll]
 		i += 1
 	else:
 		user_classes[i] = input('Sorry, but ' + user_classes[i] + ' is not a valid course, please try again\n')
 
+<<<<<<< HEAD
 # print(class_data)
 
 user_day1, user_day2 = int(user_day1), int(user_day2)
@@ -72,4 +90,7 @@ count = 0
 
 
 
+=======
+print(class_data)
+>>>>>>> 5dbb406b11b9b2a1a485159135dbbd6924496ac7
 
