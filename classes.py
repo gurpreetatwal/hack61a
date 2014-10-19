@@ -12,15 +12,15 @@
 #Class defining "class"
 #test
 class Course(object):
-	def __init__(self, name, class_size, lst): #lst = list of attributes of each class
+	def __init__(self, name, class_size, day, enrolled, wait, wait_percent, enrolled_percent, units):
 		self.name = name
 		self.class_size = class_size
-		self.enrolledpercent = lst[0]
-		self.enrolled = lst[1]
-		self.day = lst[2]
-		self.waitlist = lst[3]
-		self.waitlist_percent = lst[4]
-		self.units=lst[5]
+		self.day = day
+		self.enrolled = enrolled
+		self.wait = wait
+		self.wait_percent = wait_percent
+		self.enrolled_percent = enrolled_percent
+		self.units = units
 
 		
 
