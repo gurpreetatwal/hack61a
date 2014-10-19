@@ -109,3 +109,20 @@ def count_courses(courses,unit_cap=10.5):
 # subtitle(e.g. "structure and interpretation of computer data")
 
 
+phase_1_courses = []
+phase_2_courses = []
+adjustment_period_courses = []
+do_not_attempt = []
+
+def which_phase(course, enrollment1, enrollment2, limit, threshold):
+	#if it does not work, replace three instances of global with nonlocal
+	global phase_1_courses
+	global phase_2_courses
+	global do_not_attempt
+	if enrollment2 > threshold:
+		if enrollment1 >= limit:
+			do_not_attempt.append(course)
+		else:
+			phase_1_courses.append(course)
+	else:
+		phase_2_courses.append(course)
