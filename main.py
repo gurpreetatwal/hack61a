@@ -32,7 +32,8 @@ while i < len(user_classes):
 		units = unit_page.find('div', class_="generic-text-box", text='Units').previous_element
 
 		# Manage data
-		class_data[current_class] ={}
+		class_data[current_class] = {}
+		max_enroll = data['enrolled_max']
 		data = data['data']
 		
 		for day in data:
@@ -41,8 +42,7 @@ while i < len(user_classes):
 			waitlisted = day['waitlisted']
 			wait_percent = day['waitlisted_percent']
 			enro_percent = day['enrolled_percent']
-			class_data[current_class][day_key] = [enrolled, waitlisted, enro_percent, wait_percent, units
-
+			class_data[current_class][day_key] = [enrolled, waitlisted, enro_percent, wait_percent, max_enroll, int(units)]
 		i += 1
 	else:
 		user_classes[i] = input('Sorry, but ' + user_classes[i] + ' is not a valid course, please try again\n')
