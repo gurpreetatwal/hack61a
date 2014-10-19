@@ -52,18 +52,17 @@ while i < len(user_classes):
 		class_data[current_class] = {}
 		max_enroll = data['enrolled_max']
 		data = data['data']
-		
+
 		for day in data:
 			day_key = day['day']
 			enrolled = day['enrolled']
 			waitlisted = day['waitlisted']
 			wait_percent = day['waitlisted_percent']
 			enro_percent = day['enrolled_percent']
-			class_data[current_class][day_key] = [int(enrolled), int(waitlisted), int(enro_percent), int(wait_percent), int(units), int(max_enroll)]
+			class_data[current_class][day_key] = [float(enrolled), float(waitlisted), float(enro_percent), float(wait_percent), int(units), float(max_enroll)]
 		i += 1
 	else:
 		user_classes[i] = input('Sorry, but ' + user_classes[i] + ' is not a valid course, please try again\n')
-
 
 keys, values = class_data.keys(), []
 for i in class_data:
@@ -98,6 +97,7 @@ for i in range(cl2.len()):
 	if True == phase_or_not(cl2.get(i)):
 		phase_two_classes.add_course(cl2.get(i))
 	else:
+		print('going to phas')
 		phase_one_courses.add_courses(cl1.get(i))
 
 phase_one_courses1 = CourseLoad([])
