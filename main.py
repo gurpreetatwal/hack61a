@@ -1,14 +1,22 @@
 from data_new import berkeley_classes
 from bs4 import BeautifulSoup
 from classes import Course,CourseLoad
+from datetime import datetime
 import urllib.request
 
 print("Welcome to Tele-Bears Advisor!")
 print("Tele-Bears Advisors looks at last semester's enrollment data and determines")
 print("which classes you should Phase 1 and which ones you should Phase 2")
+user_day1 = input("Please enter your Phase1 Tele-Bears day, for example Nov 4 2014: ")
+user_day2 = input("Please enter your Phase2 Tele-Bears day: ")
 user_classes = input("Please enter all the classes you plan to take this semester, seperated by a spaces.\n")
-user_day1 = input("Please enter your Phase1 Tele-Bears day:  ")
-user_day2 = input("Please enter your Phase2 Tele-Bears day:  ")
+
+tele_bears = datetime.strptime('Oct 20 2014', '%b %d %Y')
+user_day1 = datetime.strptime(user_day1, '%b %d %Y') - tele_bears
+user_day2 = datetime.strptime(user_day2, '%b %d %Y') - tele_bears
+
+user_day1 = int(user_day1.days)
+user_day2 = int(user_day2.days)
 
 user_classes = user_classes.upper().split()
 class_data = {}
@@ -52,7 +60,7 @@ while i < len(user_classes):
 	else:
 		user_classes[i] = input('Sorry, but ' + user_classes[i] + ' is not a valid course, please try again\n')
 
-user_day1, user_day2 = int(user_day1), int(user_day2)
+
 keys, values = class_data.keys(), []
 for i in class_data:
 	values.append(class_data.get(i))
