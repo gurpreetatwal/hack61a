@@ -34,7 +34,8 @@ class CourseLoad(Course):
 		for i in self.lst:
 			total += i.units
 		self.num_units = total
-
+	def len(self):
+		return len(self.lst)
 	def is_empty(self):
 		return len(self.lst)<=0
 
