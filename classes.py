@@ -37,51 +37,21 @@ class CourseLoad(Course):
 			return "Error: exceeded length of list"
 		else:
 			return self.lst[index]
+
 	def fullest_to_emptiest(self):
 		self.lst = sorted(self.lst, key = lambda course: course.enrolledpercent)
 
 	def most_units_to_least(self):
 		self.lst = sorted(self.lst, key = lambda course: course.units)
 
-	def count_courses(courses,amount=10.5):
-	
-	    temp_lst = []
-	    def help_count(amount,part):
-	    	if amount <= 0: #hit max units
-	    	    return []
-	    	elif amount > 0: #still can add units to phase 1
-	    	    
-	    		
-	    for i in courses:
-	    	temp_lst.append(help_count(amount,part))
-	    return temp_lst
-	    
-	    def help_change(amount, part):
-	        if amount == 0:
-	            return 1
-	        if amount == part:
-	            return 1
-	        elif amount < part:
-	            return 0
-	        else:
-	            return help_change(amount-part.lst[1].units,part)+help_change(amount,part*2)
-	    return help_change(amount,courses.lst)
-	    possible_courses = course_load
-	    
-	    possible_courses.print()
 	def add_courseload(self, other): #adds two courseloads together
 		return self.lst + other.lst
 		
-	def add_course(self, course): #adds a course to the courseload
-		
+	def add_course(self,course): #adds a course to the courseload
+		self.lst.append(course)
 	
-	def remove_course(self): #removes a course from the courseload
-
-	def which_phase(self):
-		return 0
-
-	def can_phase_one(self):
-		return [i for i in self.lst if i.enrolledpercent >= 100]
+	def remove_course(self,course): #removes a course from the courseload
+		self.lst.remove(course)
 
 
 # certain classes wont fill up past phase 2, some will before phase 2 = phase 1 it
