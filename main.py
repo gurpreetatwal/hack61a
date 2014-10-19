@@ -101,9 +101,9 @@ for i in len(courseload1):
 	else:
 		courseload0.add_course(courseload1.get(i))
 
-print('sorry, cant get into these class even with phase 1', courseload0)
-print('you need to phase 1 these for sure, if you cant you probalby wont get into them', courseload11)
-print('you can just phase 2 these and probably get in', courseload2)
+print('sorry, cant get into these class even with phase 1', [i.name for i in courseload0.lst])
+print('you need to phase 1 these for sure, if you cant you probalby wont get into them', [i.name for i in courseload11.lst])
+print('you can just phase 2 these and probably get in', [i.name for i in courseload2.lst])
 
 
 
