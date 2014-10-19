@@ -19,7 +19,7 @@ class Course(object):
 		self.enrolled = lst[1]
 		self.day = lst[2]
 		self.waitlist = lst[3]
-		self.waitlist_percent = lst[5]
+		self.waitlist_percent = lst[4]
 
 		
 
@@ -28,7 +28,6 @@ class Course(object):
 class CourseLoad(Course):
 	def __init__(self, lst): #lst = list of Courses
 		self.lst = lst
-<<<<<<< HEAD
 		total = 0
 		for i in self.lst:
 			total += i.units
@@ -36,8 +35,6 @@ class CourseLoad(Course):
 
 	def num_units(self):
 		total = 0
-=======
->>>>>>> 0ca1b8d5f915f57081ed24ff7925e6bb60d2de55
 		for i in self.lst:
 			total += i.units
 		self.numunits = total
@@ -54,7 +51,6 @@ class CourseLoad(Course):
 	def most_units_to_least(self):
 		self.lst = sorted(self.lst, key = lambda course: course.units)
 
-<<<<<<< HEAD
 	def unit_combos_phase1():
 		units = 10.5
 
@@ -68,7 +64,6 @@ class CourseLoad(Course):
 			return 0
 		return help_combo()
 
-=======
 	def add_courseload(self, other): #adds two courseloads together
 		return self.lst + other.lst
 		
@@ -77,17 +72,16 @@ class CourseLoad(Course):
 	
 	def remove_course(self,course): #removes a course from the courseload
 		self.lst.remove(course)
->>>>>>> 0ca1b8d5f915f57081ed24ff7925e6bb60d2de55
 
 
 
 def count_courses(courses,unit_cap=10.5):
     """Return the number of ways to make change for unit_cap.
 
-    >>> course1 = Course(['anthro',4,10,25,5,.4])
-   	>>> course2 = Course(['german',4,13,25,5,.52])
-   	>>> course3 = Course(['math',4,127,500,5,.254])
-   	>>> course4 = Course(['spanish',5,9,20,5,.45])
+    >>> course1 = Course('anthro',25,[.4,10,5,0,0])
+   	>>> course2 = Course('german',25,[.52,24,5,0,0])
+   	>>> course3 = Course('math',500,[.254,127,5,0,0])
+   	>>> course4 = Course('spanish',20,[.45,9,5,0,0])
     >>> courseloadA = CourseLoad([course1,course2,course3,course4])
     >>> count_courses(courseloadA,10.5)
     [[course4,course1],[course3,course1],[course2,course1],[course4,course2],[course3,course2],[course4,course3]]
