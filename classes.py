@@ -19,6 +19,7 @@ class Course(object):
 		self.enrolled = lst[1]
 		self.day = lst[2]
 		self.waitlist = lst[3]
+
 		self.waitlist_percent = lst[4]
 		self.units=lst[5]
 
@@ -91,19 +92,25 @@ def count_courses(courseload,unit_cap=21):
     [[course4,course1],[course3,course1],[course2,course1],[course4,course2],[course3,course2],[course4,course3]]
     """
     if unit_cap == 0:
+        print('unit_cap is 0')
         return []
     elif unit_cap >= courseload.num_units:
-        return [courseload]
-    elif courseload.is_empty:
+    	print('cap is large enuf')
+    	return [courseload]
+    elif courseload.is_empty():
     	print('courseload is_empty')
+    	return []
+    elif courseload.get(0).units>unit_cap:
     	return []
     else: #unit_cap < courseload.num_units:
     	possible_course_loads = []
     	print('before append')
-    	possible_course_loads.append(count_courses(unit_cap-courseload.get(0).units,courseload.remove_course(0)))
-    	for i in possible_course_loads:
-    		possible_course_loads[i].add_course(courseload.get(0))
-    	possible_course_loads.append(count_courses(unit_cap,courseload.remove_course(0)))
+    	course0 = courseload.get(0)
+    	courseload.remove_course(0)
+		possible_course_loads.append(count_courses(courseload,unit_cap-course0.units))
+		for i in possible_course_loads:
+			possible_course_loads[i].add_course(course0)
+    	possible_course_loads.append(count_courses(courseload,unit_cap))
     	return possible_course_loads
 
 # certain classes wont fill up past phase 2, some will before phase 2 = phase 1 it
