@@ -71,14 +71,8 @@ for i in values:
 	phase2.append(i.get(user_day2))
 
 course_lst1, course_lst2 = [], []
-count = 0
-for key in keys:
-	p1, p2 = phase1[count], phase2[count]
-	course_lst1.append(Course(key,user_day1, p1[0], p1[1], p1[3], p1[2], p1[4], p1[5]))
-	course_lst2.append(Course(key,user_day2, p2[0], p2[1], p2[3], p2[2], p2[4], p2[5]))
-	count += 1
 
-cl1 = CourseLoad(course_lst1)
-cl2 = CourseLoad(course_lst2)
-
+print(phase1)
+# for key in keys:
+# 	course_lst1.append(Course(key,user_day1, ))
 
