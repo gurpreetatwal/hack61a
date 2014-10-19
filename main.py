@@ -62,35 +62,19 @@ while i < len(user_classes):
 	else:
 		user_classes[i] = input('Sorry, but ' + user_classes[i] + ' is not a valid course, please try again\n')
 
-<<<<<<< HEAD
-# print(class_data)
-
 user_day1, user_day2 = int(user_day1), int(user_day2)
 keys, values = class_data.keys(), []
 for i in class_data:
 	values.append(class_data.get(i))
-print(class_data.keys())
 
 phase1, phase2 = [], []
 for i in values:
 	phase1.append(i.get(user_day1))
 	phase2.append(i.get(user_day2))
 
-course_lst = []
-count = 0
+course_lst1, course_lst2 = [], []
 
-
-# print(keys[count])
-
-# for i in phase1:
-# 	course_lst.append(Course())
-# courseload_1 = CourseLoad()
-# courseload_2 = CourseLoad()
-
-
-
-
-=======
-print(class_data)
->>>>>>> 5dbb406b11b9b2a1a485159135dbbd6924496ac7
+print(phase1)
+# for key in keys:
+# 	course_lst1.append(Course(key,user_day1, ))
 
