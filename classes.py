@@ -12,9 +12,9 @@
 #Class defining "class"
 #test
 class Course(object):
-	def __init__(self, name, class_size, day, enrolled, wait, wait_percent, enrolled_percent, units):
+	def __init__(self, name, day, enrolled, wait, wait_percent, enrolled_percent, units, max_enroll):
 		self.name = name
-		self.class_size = class_size
+		self.class_size = max_enroll
 		self.day = day
 		self.enrolled = enrolled
 		self.wait = wait
