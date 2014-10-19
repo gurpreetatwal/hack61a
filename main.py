@@ -86,13 +86,13 @@ cl1 = CourseLoad(course_lst1)
 cl2 = CourseLoad(course_lst2)
 
 def phase_or_not(courseyay):
-	if courseyay.wait_percent + courseyay.enrolled_percent > 1.1:
+	if courseyay.wait_percent + courseyay.enrolled_percent > 0.1:
 		return False
 	return True
 
 courseload2 = CourseLoad([])
 courseload1 = CourseLoad([])
-for i in range(cl2.len()-1):
+for i in range(cl2.len()):
 	if True == phase_or_not(cl2.get(i)):
 		courseload2.add_course(cl2.get(i))
 	else:
@@ -100,12 +100,14 @@ for i in range(cl2.len()-1):
 courseload11 = CourseLoad([])
 courseload0 = CourseLoad([])
 
-for i in range(courseload1.len()-1):
+for i in range(courseload1.len()):
 	if True == phase_or_not(courseload1.get(i)):
 		courseload11.add_course(courseload1.get(i))
 	else:
 		courseload0.add_course(courseload1.get(i))
 
+print('cl1',[i.name for i in cl1.lst])
+print('cl2',[i.name for i in cl2.lst])
 print('sorry, cant get into these class even with phase 1', [i.name for i in courseload0.lst])
 print('you need to phase 1 these for sure, if you cant you probalby wont get into them', [i.name for i in courseload11.lst])
 print('you can just phase 2 these and probably get in', [i.name for i in courseload2.lst])
