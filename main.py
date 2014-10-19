@@ -81,4 +81,22 @@ for key in keys:
 cl1 = CourseLoad(course_lst1)
 cl2 = CourseLoad(course_lst2)
 
+def phase_or_not(courseyay):
+	if courseyay.wait_percent + courseyay.enrolled_percent > 1.1:
+		
+courseload2 = CourseLoad
+courseload1 = CourseLoad
+for i in len(cl2):
+	if True == phase_or_not(cl2.get(i))
+		courseload2.add_course(cl2.get(i))
+	else:
+		courseload1.add_courses(cl1.get(i))
+courseload11 = CourseLoad
+courseload0 = CourseLoad
+for i in len(courseload1):
+	if True == phase_or_not(courseload1.get(i))
+		courseload11.add_course(courseload1.get(i))
+	else:
+		courseload0.add_course(courseload1.get(i))
+
 
