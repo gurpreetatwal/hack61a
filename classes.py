@@ -115,20 +115,41 @@ def count_courses(courses,unit_cap=10.5):
 # subtitle(e.g. "structure and interpretation of computer data")
 
 
+schedule = {'cs61a': ['cs61a', 70, 70, 100, 70], 'physics7a': ['physics7a', 80, 80, 100, 70], 'math54': ['math54', 60, 60, 100, 70]}
+
 phase_1_courses = []
 phase_2_courses = []
 adjustment_period_courses = []
 do_not_attempt = []
 
-def which_phase(course, enrollment1, enrollment2, limit, threshold):
+def name(data):
+	return data[0]
+
+def enrollment1(data):
+	return data[1]
+
+def enrollment2(data):
+	return data[2]
+
+def limit(data):
+	return data[3]
+
+def threshold(data):
+	return data[4]
+
+def which_phase(data):
 	#if it does not work, replace three instances of global with nonlocal
 	global phase_1_courses
 	global phase_2_courses
 	global do_not_attempt
-	if enrollment2 > threshold:
-		if enrollment1 >= limit:
-			do_not_attempt.append(course)
+	if enrollment2(data) > threshold(data):
+		if enrollment1(data) >= limit(data):
+			do_not_attempt.append(name(data))
 		else:
-			phase_1_courses.append(course)
+			phase_1_courses.append(name(data))
 	else:
-		phase_2_courses.append(course)
+		phase_2_courses.append(name(data))
+
+def final_soln(schedule):
+	for key in schedule:
+		which_phase(schedule[key])
